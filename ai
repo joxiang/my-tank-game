@@ -1,0 +1,22 @@
+from tank import *
+class ai(Tank):
+	def move(self, dir, angle):
+		self.angle = angle
+		self.imgc = pygame.image.load(self.img).convert_alpha()
+		self.imgd = pygame.transform.rotate(self.imgc, self.angle)
+		# print(self.step)
+		self.dir = dir
+
+		self.img = "ai-"+str(self.n)+".png"
+		self.imgc = pygame.image.load(self.img).convert_alpha()
+		self.imgd = pygame.transform.rotate(self.imgc, self.angle)
+
+		self.img = "tank-"+str(self.n+1)+".png"
+		if self.dir == up:
+			self.y-=self.step
+		elif self.dir == down:
+			self.y+=self.step
+		elif self.dir == left:
+			self.x-=self.step
+		elif self.dir == right:
+			self.x+=self.step
